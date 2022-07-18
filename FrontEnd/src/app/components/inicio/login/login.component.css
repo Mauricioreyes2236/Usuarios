@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+h3{
+    font-family: 'Mulish', sans-serif;
+}
+
+.btn-login{
+    background-color: #f05f44;
+    border-color: #f05f44;
+}
+.btn-login:hover{
+    background-color: #EE4E08;
+    border-radius: #EE4E08;
+}
+a{
+    text-decoration: none;
+    font-family: 'Mulish', sans-serif;
+}

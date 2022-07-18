@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center" style="padding: 20px;">
+                <h3>Registro</h3>
+                <br>
+                <form [formGroup]="registro"  (ngSubmit)="registrarUsuario()">
+                    <div class="form-group" style="text-align: start;">
+                        <input type="text" class="form-control" placeholder="Usuario" formControlName="usuario">
+                        <span class="text-danger ms-2"
+                        *ngIf="registro.controls['usuario'].errors?.['required'] && registro.controls['usuario'].touched">
+                            El Usuario <strong> es requerido</strong>
+                        </span>
+                        <span class="text-danger ms-2"
+                        *ngIf="registro.controls['usuario'].errors?.['pattern'] && registro.controls['usuario'].touched">
+                            El Usuario <strong> solo debe tener caracteres alfanuméricos</strong>
+                        </span>
+                    </div><br>
+                    <div class="form-group" style="text-align: start;">
+                        <input type="password" class="form-control" placeholder="Contraseña" formControlName="password" id="password">
+                        <span class="ms-2" id="mensaje" 
+                        *ngIf="registro.controls['confirmPassword'].errors?.['pattern'] && registro.controls['confirmPassword'].touched"></span>
+                        <span>
+                            <ul style="color: rgb(126, 125, 125);">
+                                <li id="mayus">Debe tener una mayuscula</li>
+                                <li id="lower">Debe tener una minuscula</li>
+                                <li id="simbol">Debe tener uno de los siguientes simbolos: ._$%#*</li>
+                                <li id="number">Debe tener un numero</li>
+                                <li id="len">Debe tener minimo 10 caracteres</li>
+                            </ul>
+                            </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Repetir Contraseña" formControlName="confirmPassword">
+                        <span class="text-danger ms-2"
+                        *ngIf="registro.controls['confirmPassword'].errors?.['pattern'] && registro.controls['confirmPassword'].touched">
+                            La contraseña <strong> es requerida</strong>
+                        </span>
+                    </div><br>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-reg ms-2 m-4">Aceptar</button>
+                        <button class="btn btn-secondary" routerLink="/login">Volver</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

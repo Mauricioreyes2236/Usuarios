@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center" style="padding: 20px;">
+                <h3>Login</h3>
+                <br>
+                <form [formGroup]="login" (ngSubmit)="log()">
+                    <div class="form-group" style="text-align: start;">
+                        <input type="text" class="form-control" placeholder="usuario" formControlName="usuario">
+                        <span class="text-danger ms-2" 
+                        *ngIf="login.controls['usuario'].errors?.['required'] && login.controls['usuario'].touched">
+                            El Usuario <strong>es requerido</strong>
+                        </span>
+                    </div><br>
+                    <div class="form-group" style="text-align: start;">
+                        <input type="password" class="form-control" placeholder="contraseña" formControlName="password">
+                        <span class="text-danger ms-2"
+                        *ngIf="login.controls['password'].errors?.['pattern'] && login.controls['password'].touched">
+                            La contraseña <strong> es requerida</strong>
+                        </span>
+                    </div><br>
+                    <div class="form-group">
+                        <button class="btn btn-primary m-2 btn-login" [disabled]="login.invalid" type="submit">Aceptar</button>
+                        <button class="btn btn-secondary" routerLink="/bienvenido">Volver</button>
+                    </div><br>
+                    <div class="form-group">
+                        <a style="color: #f05f44; cursor: pointer;" routerLink="/register">Crear Cuenta</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
